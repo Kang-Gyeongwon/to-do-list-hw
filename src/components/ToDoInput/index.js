@@ -1,9 +1,22 @@
+import { useState } from "react";
 import { Header, ToDoInputBox } from "./styled";
 
 const ToDoInput = () => {
-  const handleClickSubmit = (e) => {
-    const todo = document.getElementById("todo_input").value;
-    return todo;
+  const [todos, updateTodo] = useState([]);
+  const [todoId, updateTodoId] = useState(0);
+  const [curText, updateText] = useState("");
+  const handleClickSubmit = () => {
+    if (todoId >= 0) {
+      updateTodo([
+        ...todos,
+        {
+          content: curText,
+          id: todoId,
+        },
+      ]);
+      updateTodoId(todoId + 1);
+      updateText("");
+    }
   };
   return (
     <Header>
@@ -18,6 +31,8 @@ const ToDoInput = () => {
             paddingLeft: "1.2%",
             border: "0",
           }}
+          value={curText}
+          onChange={(e) => updateText(e.target.value)}
         />
         <input
           id="todo_btn"

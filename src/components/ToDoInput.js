@@ -22,6 +22,10 @@ export const ToDoInputBox = styled.div`
 `;
 
 const ToDoInput = () => {
+  const handleClickSubmit = (e) => {
+    const todo = document.getElementById("todo_input").value
+    return todo;
+  };
   return (
     <Header>
       <ToDoInputBox>
@@ -50,6 +54,7 @@ const ToDoInput = () => {
             color: "#212529",
             fontSize: "18px",
           }}
+          onClick={handleClickSubmit}
         />
       </ToDoInputBox>
     </Header>

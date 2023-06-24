@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Header, ToDoInputBox } from "./styled";
+import { Header, ToDoInputBox, completionStyle, incompletionStyle, listStyle } from "./styled";
 
 const ToDo = () => {
   const [todos, updateTodo] = useState([]);
@@ -12,6 +12,7 @@ const ToDo = () => {
         {
           content: curText,
           id: todoId,
+          completion: false
         },
       ]);
       updateTodoId(todoId + 1);
@@ -57,8 +58,12 @@ const ToDo = () => {
         <ul>
           {todos.map((todo, idx) => {
             return (
-              <li key={idx}>
-                <span>{todo.content}</span>
+              <li key={idx} style={listStyle}>
+                <span
+                  style={todo.completion ? completionStyle : incompletionStyle}
+                >
+                  {todo.content}
+                </span>
                 <spna>&#128465;</spna>
               </li>
             );

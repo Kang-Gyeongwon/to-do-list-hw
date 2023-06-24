@@ -20,3 +20,18 @@ export const ToDoInputBox = styled.div`
   padding: 0;
   margin: 0 auto;
 `;
+
+export const listStyle = {
+  listStyle: "lower-roman",
+  textAlign: "left",
+  marginBottom: 5,
+  marginRight: "2.5%",
+  fontSize: 18.5,
+};
+
+export const completionStyle = {
+  color: "#D3D3D3", cusor: "pointer"
+};
+export const incompletionStyle = {
+  color: "black", cusor: "pointer"
+}

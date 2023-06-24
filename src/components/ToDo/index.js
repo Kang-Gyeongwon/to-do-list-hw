@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Header, ToDoInputBox } from "./styled";
 
-const ToDoInput = () => {
+const ToDo = () => {
   const [todos, updateTodo] = useState([]);
   const [todoId, updateTodoId] = useState(0);
   const [curText, updateText] = useState("");
@@ -55,4 +55,4 @@ const ToDoInput = () => {
   );
 };
 
-export default ToDoInput;
+export default ToDo;

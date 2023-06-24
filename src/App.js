@@ -1,12 +1,10 @@
 import "./App.css";
-import ToDoInput from "./components/ToDoInput";
-import ToDoList from "./components/ToDoList";
+import ToDo from "./components/ToDo";
 
 const App = () => {
   return (
     <div className="App">
-      <ToDoInput />
-      <ToDoList />
+      <ToDo />
     </div>
   );
 };

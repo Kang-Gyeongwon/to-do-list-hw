@@ -1,5 +1,5 @@
 import "./App.css";
-import ToDoInput from "../src/components/ToDoInput"; 
+import ToDoInput from "./components/ToDoInput"; 
 const App = () => {
   return <div className="App">
     <ToDoInput />

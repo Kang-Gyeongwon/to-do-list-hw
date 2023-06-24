@@ -1,10 +1,17 @@
 import { useState } from "react";
-import { Header, ToDoInputBox, completionStyle, incompletionStyle, listStyle } from "./styled";
+import {
+  Header,
+  ToDoInputBox,
+  completionStyle,
+  incompletionStyle,
+  listStyle,
+} from "./styled";
 
 const ToDo = () => {
   const [todos, updateTodo] = useState([]);
   const [todoId, updateTodoId] = useState(0);
   const [curText, updateText] = useState("");
+
   const handleClickSubmit = () => {
     if (todoId >= 0) {
       updateTodo([
@@ -12,12 +19,26 @@ const ToDo = () => {
         {
           content: curText,
           id: todoId,
-          completion: false
+          completion: false,
         },
       ]);
       updateTodoId(todoId + 1);
       updateText("");
     }
+  };
+  const handleClickRemove = (removeId) => {
+    const result = todos.filter((todo) => {
+      return todo.id !== removeId;
+    });
+    updateTodo(result);
+  };
+  const handleClickCompletion = (currentId) => {
+    const result = todos.map((todo) => {
+      return todo.id !== currentId
+        ? todo
+        : { ...todo, completion: !todo.completion };
+    });
+    updateTodo(result);
   };
   return (
     <div>
@@ -61,10 +82,16 @@ const ToDo = () => {
               <li key={idx} style={listStyle}>
                 <span
                   style={todo.completion ? completionStyle : incompletionStyle}
+                  onClick={() => handleClickCompletion(todo.id)}
                 >
                   {todo.content}
                 </span>
-                <spna>&#128465;</spna>
+                <spna
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleClickRemove(todo.id)}
+                >
+                  &#128465;
+                </spna>
               </li>
             );
           })}

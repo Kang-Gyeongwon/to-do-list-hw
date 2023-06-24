@@ -30,8 +30,12 @@ export const listStyle = {
 };
 
 export const completionStyle = {
-  color: "#D3D3D3", cusor: "pointer"
+  color: "#D3D3D3",
+  cursor: "pointer",
+  marginRight: "2%",
 };
 export const incompletionStyle = {
-  color: "black", cusor: "pointer"
-}
+  color: "black",
+  cursor: "pointer",
+  marginRight: "2%",
+};

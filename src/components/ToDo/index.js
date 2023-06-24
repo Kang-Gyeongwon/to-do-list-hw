@@ -70,6 +70,7 @@ const ToDo = () => {
               borderRadius: "0",
               color: "#212529",
               fontSize: "18px",
+              cursor: "pointer",
             }}
             onClick={handleClickSubmit}
           />
